@@ -1,0 +1,97 @@
+---
+import RawBiMoonStars from '~icons/bi/moon-stars?raw&width=1em&height=1em'
+import RawBiSun from '~icons/bi/sun?raw&width=1em&height=1em'
+import RawTSunMoon from '~icons/tabler/sun-moon?raw&width=1em&height=1em'
+import RawBiCheck2 from '~icons/bi/check2?raw&width=1em&height=1em&data-icon=check'
+import Dropdown from './Dropdown.astro'
+import DropdownItem from './DropdownItem.astro'
+import { sentenceCase } from 'change-case'
+
+const icons = {
+  light: RawBiSun,
+  dark: RawBiMoonStars,
+  auto: RawTSunMoon,
+  active: RawBiCheck2,
+}
+const options = ['light', 'dark', 'auto'] as const
+---
+
+<Dropdown
+  id="switch-theme"
+  name="switch theme"
+  aria-label="switch theme"
+  data-bs-config='{ "popperConfig": { "placement": "bottom-end" } }'
+  data-bs-offset="8,8"
+  class="text-2xl"
+>
+  <Fragment set:html={RawBiSun} slot="button-content" />
+  {
+    options.map((option) => (
+      <DropdownItem data-value={option}>
+        <Fragment set:html={icons[option]} />
+        {sentenceCase(option)}
+      </DropdownItem>
+    ))
+  }
+</Dropdown>
+
+<script is:inline define:vars={{ icons }}>
+  document.addEventListener('astro:page-load', () => {
+    const { theme, button } = applyTheme()
+
+    button.nextElementSibling
+      .querySelectorAll('.dropdown-item')
+      .forEach((item) => {
+        item.addEventListener('click', () => {
+          const theme = item.textContent.trim().toLowerCase()
+
+          applyTheme(theme)
+          localStorage.setItem('theme', theme)
+          item
+            .closest('ul')
+            .querySelectorAll('li')
+            .forEach((item) => {
+              item
+                .querySelectorAll('[data-icon="check"')
+                .forEach((icon) => icon.remove())
+              item.classList.remove('active')
+            })
+          item.insertAdjacentHTML('beforeend', icons.active)
+          item.closest('.group').classList.add('active')
+        })
+        if (item.getAttribute('data-value') === theme) {
+          item.insertAdjacentHTML('beforeend', icons.active)
+          item.closest('.group').classList.add('active')
+        }
+      })
+
+    window
+      .matchMedia('(prefers-color-scheme: dark)')
+      .addEventListener('change', ({ matches }) => applyTheme(matches))
+  })
+
+  document.addEventListener('astro:after-swap', () => applyTheme())
+
+  function applyTheme(theme) {
+    let preferDark
+    if (typeof theme !== 'string') {
+      if (typeof theme === 'boolean') preferDark = theme
+      theme = window.localStorage?.getItem('theme')
+    }
+    if (!['light', 'dark'].includes(theme)) theme = 'auto'
+    document.documentElement.classList[
+      theme === 'dark' ||
+      (theme === 'auto' &&
+        (preferDark ??
+          window.matchMedia('(prefers-color-scheme: dark)').matches))
+        ? 'add'
+        : 'remove'
+    ]('dark')
+
+    const button = document.getElementById('switch-theme')
+
+    button.innerHTML = icons[theme]
+
+    return { theme, button }
+  }
+</script>
