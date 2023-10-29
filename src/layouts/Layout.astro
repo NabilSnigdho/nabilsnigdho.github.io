@@ -45,8 +45,8 @@ const { title } = Astro.props
           {
             [
               { name: 'Home', path: '/' },
-              { path: '/posts' },
-              { path: '/projects' },
+              { path: '/posts/' },
+              { path: '/projects/' },
             ].map(({ path, name }) => (
               <a
                 href={`${path}`}
