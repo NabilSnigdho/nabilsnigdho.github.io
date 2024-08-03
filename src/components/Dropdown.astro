@@ -2,50 +2,50 @@
 import type { HTMLAttributes } from 'astro/types'
 
 type Props = HTMLAttributes<'button'> & {
-  name: string
+	name: string
 }
 
 const { name, ...attrs } = Astro.props
 ---
 
 <div class="dropdown relative flex">
-  <button
-    type="button"
-    data-bs-toggle="dropdown"
-    aria-haspopup="menu"
-    aria-expanded="false"
-    {...attrs}
-  >
-    <slot name="button-content" />
-  </button>
-  <div
-    role="menu"
-    aria-label={name}
-    class="dropdown-menu absolute right-0 top-full z-10 hidden divide-y divide-zinc-100 rounded-lg bg-white shadow dark:bg-zinc-700"
-  >
-    <ul class="flex flex-col py-2 text-sm text-zinc-700 dark:text-zinc-200">
-      <slot />
-    </ul>
-  </div>
+	<button
+		type="button"
+		data-bs-toggle="dropdown"
+		aria-haspopup="menu"
+		aria-expanded="false"
+		{...attrs}
+	>
+		<slot name="button-content" />
+	</button>
+	<div
+		role="menu"
+		aria-label={name}
+		class="dropdown-menu absolute right-0 top-full z-10 hidden divide-y divide-zinc-100 rounded-lg bg-white shadow dark:bg-zinc-700"
+	>
+		<ul class="flex flex-col py-2 text-sm text-zinc-700 dark:text-zinc-200">
+			<slot />
+		</ul>
+	</div>
 </div>
 
 <script>
-  import Dropdown from 'bootstrap/js/dist/dropdown'
+	import Dropdown from 'bootstrap/js/dist/dropdown'
 
-  document.addEventListener('astro:page-load', () => {
-    document
-      .querySelectorAll('[data-bs-toggle="dropdown"]')
-      .forEach((dropdownToggleEl) => {
-        const dropdown = new Dropdown(dropdownToggleEl) as Dropdown & {
-          _menu: HTMLElement
-        }
+	document.addEventListener('astro:page-load', () => {
+		document
+			.querySelectorAll('[data-bs-toggle="dropdown"]')
+			.forEach((dropdownToggleEl) => {
+				const dropdown = new Dropdown(dropdownToggleEl) as Dropdown & {
+					_menu: HTMLElement
+				}
 
-        dropdownToggleEl.addEventListener('shown.bs.dropdown', () => {
-          dropdown._menu.classList.remove('hidden')
-        })
-        dropdownToggleEl.addEventListener('hidden.bs.dropdown', () => {
-          dropdown._menu.classList.add('hidden')
-        })
-      })
-  })
+				dropdownToggleEl.addEventListener('shown.bs.dropdown', () => {
+					dropdown._menu.classList.remove('hidden')
+				})
+				dropdownToggleEl.addEventListener('hidden.bs.dropdown', () => {
+					dropdown._menu.classList.add('hidden')
+				})
+			})
+	})
 </script>

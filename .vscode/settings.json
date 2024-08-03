@@ -1,16 +1,16 @@
 {
-  "cSpell.words": [
-    "astrojs",
-    "iconify",
-    "nabilsnigdho",
-    "tailwindcss",
-    "tsconfigs",
-    "unocss",
-    "unplugin"
-  ],
-  "editor.tabSize": 2,
-  "editor.codeActionsOnSave": {
-    "source.organizeImports": true
-  },
-  "typescript.tsdk": "node_modules/typescript/lib"
+	"cSpell.words": [
+		"astrojs",
+		"iconify",
+		"nabilsnigdho",
+		"tailwindcss",
+		"tsconfigs",
+		"unocss",
+		"unplugin"
+	],
+	"editor.tabSize": 2,
+	"editor.codeActionsOnSave": {
+		"source.organizeImports": "explicit"
+	},
+	"typescript.tsdk": "node_modules/typescript/lib"
 }
