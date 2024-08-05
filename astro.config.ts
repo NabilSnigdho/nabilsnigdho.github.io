@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config'
 import UnoCSS from 'unocss/astro'
 import Icons from 'unplugin-icons/vite'
+import { analyzer } from 'vite-bundle-analyzer'
 
 // https://astro.build/config
 export default defineConfig({
@@ -18,6 +19,9 @@ export default defineConfig({
 		plugins: [
 			Icons({
 				compiler: 'astro',
+			}),
+			analyzer({
+				analyzerMode: 'static',
 			}),
 		],
 	},

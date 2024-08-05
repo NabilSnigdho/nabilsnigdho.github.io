@@ -4,8 +4,8 @@ import RawBiCheck2 from '~icons/bi/check2?raw&width=1em&height=1em&data-icon=che
 import RawBiMoonStars from '~icons/bi/moon-stars?raw&width=1em&height=1em'
 import RawBiSun from '~icons/bi/sun?raw&width=1em&height=1em'
 import RawTSunMoon from '~icons/tabler/sun-moon?raw&width=1em&height=1em'
-import Dropdown from './Dropdown.astro'
-import DropdownItem from './DropdownItem.astro'
+import DropdownItem from './Dropdown/DropdownItem.astro'
+import DropdownLite from './Dropdown/DropdownLite.astro'
 
 const icons = {
 	light: RawBiSun,
@@ -16,13 +16,13 @@ const icons = {
 const options = ['light', 'dark', 'auto'] as const
 ---
 
-<Dropdown
+<DropdownLite
 	id="switch-theme"
 	name="switch theme"
 	aria-label="switch theme"
 	data-bs-config='{ "popperConfig": { "placement": "bottom-end" } }'
-	data-bs-offset="8,8"
 	class="text-2xl"
+	menuClass="top-[calc(100%_+_8px)] right-[-8px]"
 >
 	<Fragment set:html={RawBiSun} slot="button-content" />
 	{
@@ -33,7 +33,7 @@ const options = ['light', 'dark', 'auto'] as const
 			</DropdownItem>
 		))
 	}
-</Dropdown>
+</DropdownLite>
 
 <script is:inline define:vars={{ icons }}>
 	document.addEventListener('astro:page-load', () => {
