@@ -4,21 +4,31 @@ import Layout from '@/layouts/Layout.astro'
 ---
 
 <Layout title="nabilSnigdho">
-	<h1>Wellcome</h1>
-	<p>
-		I'm S. Mahmud Nabil. I’m currently pursuing a BSc Engr. degree in Materials
-		Science and Engineering at <a
-			href="https://www.mse.ruet.ac.bd/"
-			target="_blank">RUET</a
-		>.
-	</p>
-	<p>
-		Alongside my studies, I work full-time as a Full Stack Web Developer, where
-		I build and maintain dynamic, user-friendly web applications.
-	</p>
-	<p>
-		I’m also an open-source and Linux enthusiast, actively exploring and
-		contributing to various projects.
-	</p>
-	<SocialIcons />
+	<div class="text-center">
+		<h1>Hello there!</h1>
+		<div
+			class="b-solid b-black b-1 dark:b-white mx-auto my-12 flex aspect-square h-auto w-1/2 items-center justify-center rounded-full p-2 dark:bg-gray-400"
+		>
+			<img src="/photo-bw.webp" alt="" class="max-h-full" />
+		</div>
+		<p>
+			I'm S. Mahmud Nabil. I’m currently pursuing a B.Sc. Engr. degree in
+			Materials Science and Engineering at <a
+				href="https://www.mse.ruet.ac.bd/"
+				target="_blank">RUET</a
+			>.
+		</p>
+		<p>
+			Alongside my studies, I work full-time as a Full Stack Web Developer,
+			where I build and maintain dynamic, user-friendly web applications.
+		</p>
+		<p>
+			I’m also an open-source and Linux enthusiast, actively exploring and
+			contributing to various projects.
+		</p>
+		<div class="mb-8">
+			<h2>Connect with me on</h2>
+			<SocialIcons />
+		</div>
+	</div>
 </Layout>
