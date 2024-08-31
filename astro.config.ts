@@ -5,7 +5,7 @@ import { analyzer } from 'vite-bundle-analyzer'
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://nabilsnigdho.github.io',
+	site: 'https://www.nabilsnigdho.dev',
 	trailingSlash: 'always',
 	build: {
 		format: 'directory',
