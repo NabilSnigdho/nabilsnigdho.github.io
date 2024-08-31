@@ -1,0 +1,62 @@
+---
+import ArcticonsKeyoxide from '~icons/arcticons/keyoxide'
+import Fa6BrandsFacebookF from '~icons/fa6-brands/facebook-f'
+import Fa6BrandsSkype from '~icons/fa6-brands/skype'
+import Fa6BrandsXTwitter from '~icons/fa6-brands/x-twitter'
+import TablerBrandGithub from '~icons/tabler/brand-github'
+import TablerBrandLinkedin from '~icons/tabler/brand-linkedin'
+import TablerBrandTelegram from '~icons/tabler/brand-telegram'
+
+const socialLinks = [
+	{
+		icon: TablerBrandGithub,
+		link: 'https://github.com/NabilSnigdho/',
+		name: 'Github',
+	},
+	{
+		icon: TablerBrandLinkedin,
+		link: 'https://www.linkedin.com/in/s-mahmud-nabil-73614a1b1/',
+		name: 'Linkedin',
+	},
+	{
+		icon: ArcticonsKeyoxide,
+		link: 'https://keyoxide.org/7fcad77c8bd95163fb835f0ed3a5dce7153c5774/',
+		name: 'Keyoxide',
+	},
+	{
+		icon: TablerBrandTelegram,
+		link: 'https://t.me/nabilsnigdho',
+		name: 'Telegram',
+	},
+	{
+		icon: Fa6BrandsFacebookF,
+		link: 'https://www.facebook.com/nabilmahmud.snigdho',
+		name: 'Facebook',
+	},
+	{
+		icon: Fa6BrandsSkype,
+		link: 'https://join.skype.com/invite/w2BU5vtDmCZK',
+		name: 'Skype',
+	},
+	{
+		icon: Fa6BrandsXTwitter,
+		link: 'https://x.com/SnigdhoNabil',
+		name: 'X',
+	},
+]
+---
+
+<div class="flex gap-3 text-3xl">
+	{
+		socialLinks.map((x) => (
+			<a
+				href={x.link}
+				target="_blank"
+				rel="noopener noreferrer me"
+				title={x.name}
+			>
+				<x.icon />
+			</a>
+		))
+	}
+</div>
