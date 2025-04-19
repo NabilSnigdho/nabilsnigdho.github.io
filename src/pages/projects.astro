@@ -1,8 +1,28 @@
 ---
+import { Image } from 'astro:assets'
+import { getCollection } from 'astro:content'
+
 import Layout from '@/layouts/Layout.astro'
+const projects = await getCollection('projects')
 ---
 
 <Layout title="Projects | nabilSnigdho">
 	<h1>Projects</h1>
-	<p>No projects yet.</p>
+	<div class="space-y-12">
+		{
+			projects.map((project) => (
+				<a
+					href={`/projects/${project.id}/`}
+					class="block overflow-hidden rounded-lg no-underline"
+				>
+					<div class="relative h-48 overflow-hidden">
+						<Image src={project.data.ss} alt={project.data.name} />
+					</div>
+					<div class="p-2 text-lg leading-none font-semibold tracking-tight">
+						{project.data.name}
+					</div>
+				</a>
+			))
+		}
+	</div>
 </Layout>

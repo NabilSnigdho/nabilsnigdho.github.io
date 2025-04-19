@@ -1,0 +1,50 @@
+---
+import { Image } from 'astro:assets'
+import { getCollection, render } from 'astro:content'
+import Layout from '@/layouts/Layout.astro'
+import LucideArrowLeft from '~icons/lucide/arrow-left'
+import LucideExternalLink from '~icons/lucide/external-link'
+import LucideGithub from '~icons/lucide/github'
+
+export async function getStaticPaths() {
+	const projects = await getCollection('projects')
+	return projects.map((project) => ({
+		params: { projectId: project.id },
+		props: { project },
+	}))
+}
+
+const { project } = Astro.props
+const { Content } = await render(project)
+---
+
+<Layout title={project.data.name || 'Project'}>
+	<a
+		href="/projects/"
+		class="text-muted-foreground hover:text-foreground inline-flex items-center"
+	>
+		<LucideArrowLeft class="mr-2 h-4 w-4" /> Back to all projects</a
+	>
+	<h1>{project.data.name}</h1>
+	<div class="overflow-hidden rounded-lg border shadow-sm">
+		<Image src={project.data.ss} alt={project.data.name} />
+	</div>
+	<div class="my-6 flex flex-wrap gap-4">
+		<a
+			href={project.data.url}
+			target="_blank"
+			rel="noopener noreferrer"
+			class="ring-offset-background focus-visible:ring-ring bg-primary text-primary-foreground hover:bg-primary/90 inline-flex h-10 items-center justify-center gap-2 rounded-md px-4 py-2 text-sm font-medium whitespace-nowrap no-underline transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0"
+		>
+			<LucideExternalLink class="mr-2 h-4 w-4" /> Visit Live Site</a
+		><a
+			href={project.data.gh}
+			target="_blank"
+			rel="noopener noreferrer"
+			class="ring-offset-background focus-visible:ring-ring border-input bg-background hover:bg-accent hover:text-accent-foreground inline-flex h-10 items-center justify-center gap-2 rounded-md border px-4 py-2 text-sm font-medium whitespace-nowrap no-underline transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0"
+			><LucideGithub class="mr-2 h-4 w-4" /> View Source Code</a
+		>
+	</div>
+	<h2>About this project</h2>
+	<Content />
+</Layout>

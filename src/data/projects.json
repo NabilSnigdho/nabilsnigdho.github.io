@@ -1,0 +1,18 @@
+[
+	{
+		"id": "obk-Layout-editor",
+		"name": "OpenBangla Layout Editor",
+		"ss": "./obk-Layout-editor.png",
+		"url": "https://openbangla.github.io/layout-editor/",
+		"gh": "https://github.com/openBangla/layout-editor",
+		"description": "OpenBangla Layout Editor is a visual tool for creating custom keyboard layout files compatible with OpenBangla Keyboard. It uses wasm libraries to render and encode the image of the layout in the browser."
+	},
+	{
+		"id": "ruet-cover-page-generator",
+		"name": "Ruet Cover Page Generator",
+		"ss": "./ruet-cover-page-generator.png",
+		"url": "https://ruet-cover-page.github.io/",
+		"gh": "https://github.com/ruet-cover-page/ruet-cover-page.github.io/",
+		"description": "."
+	}
+]
