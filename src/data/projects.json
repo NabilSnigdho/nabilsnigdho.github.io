@@ -1,5 +1,13 @@
 [
 	{
+		"id": "bangla-im",
+		"name": "Bangla IM",
+		"ss": "./bangla-im.png",
+		"url": "https://www.nabilsnigdho.dev/bangla-im/",
+		"gh": "https://github.com/NabilSnigdho/bangla-im/",
+		"description": "Bangla IM is a playground for trying phonetic input methods for Bangla."
+	},
+	{
 		"id": "obk-Layout-editor",
 		"name": "OpenBangla Layout Editor",
 		"ss": "./obk-Layout-editor.png",
