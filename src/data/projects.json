@@ -22,5 +22,13 @@
 		"url": "https://ruet-cover-page.github.io/",
 		"gh": "https://github.com/ruet-cover-page/ruet-cover-page.github.io/",
 		"description": "."
+	},
+	{
+		"id": "avro-slate",
+		"name": "Avro Slate",
+		"ss": "./avro-slate.png",
+		"url": "https://www.nabilsnigdho.dev/avro-slate/",
+		"gh": "https://github.com/NabilSnigdho/avro-slate",
+		"description": "."
 	}
 ]
