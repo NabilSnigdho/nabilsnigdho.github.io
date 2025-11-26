@@ -24,6 +24,14 @@
 		"description": "."
 	},
 	{
+		"id": "project-analyzer",
+		"name": "Project Analyzer",
+		"ss": "./project-analyzer.png",
+		"url": "https://www.nabilsnigdho.dev/project-analyzer/",
+		"gh": "https://github.com/NabilSnigdho/project-analyzer",
+		"description": "NPV and Incremental Analysis tool."
+	},
+	{
 		"id": "avro-slate",
 		"name": "Avro Slate",
 		"ss": "./avro-slate.png",
