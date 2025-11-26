@@ -5,10 +5,10 @@
 		"iconify",
 		"lucide",
 		"nabilsnigdho",
+		"oklch",
 		"ruet",
 		"tailwindcss",
 		"tsconfigs",
-		"unocss",
 		"unplugin"
 	],
 	"editor.tabSize": 2,

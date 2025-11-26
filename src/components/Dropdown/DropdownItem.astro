@@ -12,9 +12,9 @@ const { ...attrs } = Astro.props
 		tabindex="-1"
 		class:list={[
 			'dropdown-item flex w-full items-center gap-2 px-4 py-2 text-left',
-			'hover:(bg-zinc-100 dark:(bg-zinc-600 text-white))',
-			'focus:(bg-zinc-100 dark:(bg-zinc-600 text-white))',
-			'dark:group-[.active]:(bg-zinc-500 text-white) group-[.active]:bg-zinc-200',
+			'hover:bg-zinc-100 hover:dark:bg-zinc-600 hover:dark:text-white',
+			'focus:bg-zinc-100 focus:dark:bg-zinc-600 focus:dark:text-white',
+			'group-[.active]:bg-zinc-200 dark:group-[.active]:bg-zinc-500 dark:group-[.active]:text-white',
 		]}
 		{...attrs}
 	>

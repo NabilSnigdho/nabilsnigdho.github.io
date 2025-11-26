@@ -1,5 +1,5 @@
+import tailwindcss from '@tailwindcss/vite'
 import { defineConfig } from 'astro/config'
-import UnoCSS from 'unocss/astro'
 import Icons from 'unplugin-icons/vite'
 import { analyzer } from 'vite-bundle-analyzer'
 
@@ -10,11 +10,6 @@ export default defineConfig({
 	build: {
 		format: 'directory',
 	},
-	integrations: [
-		UnoCSS({
-			injectReset: true,
-		}),
-	],
 	vite: {
 		plugins: [
 			Icons({
@@ -23,6 +18,7 @@ export default defineConfig({
 			analyzer({
 				analyzerMode: 'static',
 			}),
+			tailwindcss(),
 		],
 	},
 })
